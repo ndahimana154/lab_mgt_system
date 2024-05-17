@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <title>Lab Management System Home</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container">
+      {% include 'left_nav.html' %}
+      <div class="right-part">
+        <div class="boards">
+          <div class="board">
+            <p>{{ total_equipments_count }}</p>
+            <span> Total Equipments </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!-- equipment_types_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipments List</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container">
+      {% include 'left_nav.html' %}
+      <div class="right-part">
+        <h1>Equipments List</h1>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Equipment type</th>
+              <th>Availablitiy</th>
+              <th>Purchase Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for equipment in equipments %}
+            <tr>
+              <td>{{ equipment.id }}</td>
+              <td>{{ equipment.name }}</td>
+              <td>{{ equipment.description }}</td>
+              <td>{{ equipment.equipment_type }}</td>
+              <td>{{ equipment.availability_status }}</td>
+              <td>{{ equipment.purchase_date }}</td>
+              <td>
+                <a href="{% url 'delete_equipment' equipment.id %}">Delete</a>
+                <a href="{% url 'update_equipment' equipment.id %}">Update</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

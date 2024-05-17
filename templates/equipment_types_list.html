@@ -1,0 +1,46 @@
+<!-- equipment_types_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipment Types List</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container">
+      {% include 'left_nav.html' %}
+      <div class="right-part">
+        <h1>Equipment Types List</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Type Name</th>
+              <th>Equipments Count</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for equipment_type in equipment_types %}
+            <tr>
+              <td>{{ equipment_type.id }}</td>
+              <td>{{ equipment_type.type_name }}</td>
+              <td>{{ equipment_type.labequipment_set.count }}</td>
+              <!-- Count of equipments for this type -->
+              <td>
+                <a href="{% url 'delete_equipment_type' equipment_type.id %}"
+                  >Delete</a
+                >
+                <a href="{% url 'update_equipment_type' equipment_type.id %}"
+                  >Update</a
+                >
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

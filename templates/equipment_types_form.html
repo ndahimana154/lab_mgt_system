@@ -1,0 +1,25 @@
+<!-- equipment_types_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Equipment Type</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container">
+      {% include 'left_nav.html' %}
+      <div class="right-part">
+        <h2>Add New Equipment Type</h2>
+
+        <form method="post">
+          {% if result_message %}
+          <p class="result">{{ result_message }}</p>
+          {% endif %} {% csrf_token %} {{ form.as_p }}
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

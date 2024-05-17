@@ -1,0 +1,26 @@
+<!-- update_equipment.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Equipment</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container">
+      {% include 'left_nav.html' %}
+      <div class="right-part">
+        <h1>Update Equipment</h1>
+        <form method="POST">
+          {% csrf_token %} {% if messages %}
+          <div class="results">
+            {% for message in messages %} {{ message }} {% endfor %}
+          </div>
+          {% endif %} {{ form.as_p }}
+          <button type="submit">Update</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
